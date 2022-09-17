@@ -16,9 +16,6 @@ export class AeropuertoService {
     }
 
     async findOne(id: string): Promise<AeropuertoEntity> {
-        if (id.length != 3) {
-          throw new BusinessLogicException("The aeropuerto id has more or less than 3 caracters", BusinessError.BAD_REQUEST);
-        }
         const aeropuerto: AeropuertoEntity = await this.aeropuertoRepository.findOne({where: {id}, relations: ["aerolineas"] } );
         if (!aeropuerto){
           throw new BusinessLogicException("The aeropuerto with the given id was not found", BusinessError.NOT_FOUND);
@@ -46,9 +43,9 @@ export class AeropuertoService {
             throw new BusinessLogicException("The aeropuerto id has more or less than 3 caracters", BusinessError.BAD_REQUEST);
         }
         const aeropuerto: AeropuertoEntity = await this.aeropuertoRepository.findOne({where:{id}});
-        if (!aeropuerto)
+        if (!aeropuerto){
           throw new BusinessLogicException("The aeropuerto with the given id was not found", BusinessError.NOT_FOUND);
-      
+        }
         await this.aeropuertoRepository.remove(aeropuerto);
     }
 }
