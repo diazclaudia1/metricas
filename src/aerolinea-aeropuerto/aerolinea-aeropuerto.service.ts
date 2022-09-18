@@ -7,6 +7,18 @@ import { BusinessError, BusinessLogicException } from '../shared/errors/business
 
 @Injectable()
 export class AerolineaAeropuertoService {
+    deleteAerolineaAeropuerto(aeropuertoId: string, aerolineaId: string) {
+        throw new Error('Method not implemented.');
+    }
+    associateAerolineaAeropuerto(aeropuertoId: string, aeropuerto: AeropuertoEntity[]) {
+        throw new Error('Method not implemented.');
+    }
+    findAerolineaIdAeropuertoId(aeropuertoId: string, aerolineaId: string) {
+        throw new Error('Method not implemented.');
+    }
+    addAeropuertoAerolinea(aeropuertoId: string, aerolineaId: string) {
+        throw new Error('Method not implemented.');
+    }
     constructor(
         @InjectRepository(AeropuertoEntity)
         private readonly aeropuertoRepository: Repository<AeropuertoEntity>,
