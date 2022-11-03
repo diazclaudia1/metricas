@@ -49,14 +49,4 @@ export class AeropuertoService {
         await this.aeropuertoRepository.remove(aeropuerto);
     }
     
-    async delete2(id: string) {
-        if (id.length != 3) {
-            throw new BusinessLogicException("The aeropuerto id has more or less than 3 caracters", BusinessError.BAD_REQUEST);
-        }
-        const aeropuerto: AeropuertoEntity = await this.aeropuertoRepository.findOne({where:{id}});
-        if (!aeropuerto){
-          throw new BusinessLogicException("The aeropuerto with the given id was not found", BusinessError.NOT_FOUND);
-        }
-        await this.aeropuertoRepository.remove(aeropuerto);
-    }
 }
