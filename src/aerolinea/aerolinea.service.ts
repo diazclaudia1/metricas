@@ -51,5 +51,12 @@ export class AerolineaService {
         await this.aerolineaRepository.remove(aerolinea);
     }
     
+    async delete2(id: string) {
+        const aerolinea: AerolineaEntity = await this.aerolineaRepository.findOne({where:{id}});
+        if (!aerolinea) { 
+          throw new BusinessLogicException("The aerolinea with the given id was not found", BusinessError.NOT_FOUND);
+        }
+        await this.aerolineaRepository.remove(aerolinea);
+    }
    
 }
